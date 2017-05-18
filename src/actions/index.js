@@ -7,7 +7,13 @@ export const FETCH_WEATHER = 'FETCH_WEATHER'
 
 export function fetchWeather(city) {
     const url = `${ROOT_URL}&q=${city},br&units=metric`;
-
     const request = axios.get(url);
+
+    request.then(function(response){
+        console.log(response);
+    }, function(err){
+        console.log(err);
+    });
+
     return {type: FETCH_WEATHER, payload: request}
 }
